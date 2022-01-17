@@ -15,7 +15,7 @@
         android:background="@drawable/white_background">
 
         <TextView
-            android:id="@+id/test_number"
+            android:id="@+id/quiz_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -25,26 +25,27 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="number 1/10"/>
 
         <TextView
-            android:id="@+id/test_quiz"
+            android:id="@+id/quiz_question"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:gravity="center"
+            android:gravity="center|bottom"
             android:maxHeight="300dp"
             android:minHeight="150dp"
-            android:text="This is question"
             android:textColor="#FF0B1823"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/test_number" />
+            app:layout_constraintTop_toBottomOf="@+id/quiz_number"
+            tools:text="This is question" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/answer_button_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -53,66 +54,65 @@
             android:background="@drawable/btn_ans"
             android:maxHeight="90dp"
             android:padding="16dp"
-            android:text="Answer 1"
             android:textColor="#FF0B1823"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintBottom_toTopOf="@+id/answer_button_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/test_quiz"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/quiz_question"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="answer 1"/>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/answer_button_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@drawable/btn_ans"
             android:maxHeight="90dp"
             android:padding="16dp"
-            android:text="Answer 2"
             android:textColor="#FF0B1823"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
-            app:layout_constraintEnd_toEndOf="@+id/button"
+            app:layout_constraintBottom_toTopOf="@+id/answer_button_3"
+            app:layout_constraintEnd_toEndOf="@+id/answer_button_1"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/button" />
+            app:layout_constraintStart_toStartOf="@+id/answer_button_1"
+            tools:text="answer 2"/>
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/answer_button_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:background="@drawable/btn_ans"
             android:maxHeight="90dp"
             android:padding="16dp"
-            android:text="Answer 3"
             android:textColor="#FF0B1823"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/button4"
-            app:layout_constraintEnd_toEndOf="@+id/button2"
+            app:layout_constraintBottom_toTopOf="@+id/answer_button_4"
+            app:layout_constraintEnd_toEndOf="@+id/answer_button_2"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/button2" />
+            app:layout_constraintStart_toStartOf="@+id/answer_button_2"
+            tools:text="answer 3"/>
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/answer_button_4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:background="@drawable/btn_ans"
             android:maxHeight="90dp"
             android:padding="16dp"
-            android:text="Answer 4"
             android:textColor="#FF0B1823"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/button3"
+            app:layout_constraintEnd_toEndOf="@+id/answer_button_3"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/button3"
-            android:onClick="launchFourthActivity"/>
+            app:layout_constraintStart_toStartOf="@+id/answer_button_3"
+            tools:text="answer 4"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

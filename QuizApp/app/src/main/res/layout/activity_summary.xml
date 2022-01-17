@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="William  Charlotte"
+        android:text="Nattawat  Sakulpiyanon"
         android:textColor="#FFCB70"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="williamCharlotte@gmail.com"
+        android:text="nattawat007@gmail.com"
         android:textColor="#fff"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/score_text_name"
@@ -260,11 +260,10 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/score_btn"
+        android:id="@+id/main_menu_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/dark_btn"
-        android:onClick="launchSecondActivity"
         android:text="Back to menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
