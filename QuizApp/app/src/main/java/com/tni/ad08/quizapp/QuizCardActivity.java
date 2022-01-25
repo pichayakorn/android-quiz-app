@@ -13,17 +13,25 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+
 
 public class QuizCardActivity extends AppCompatActivity {
 
     private static final String TAG = "QuizCardActivity";
+    public static final String EXTRA_MY_SCORE = "com.tni.ad08.quizapp.extra.MY_SCORE";
+    public static final String EXTRA_FULL_SCORE = "com.tni.ad08.quizapp.extra.FULL_SCORE";
 
     private TextView quizNumTV;
     private TextView questionTV;
     private Button answerBtn1, answerBtn2, answerBtn3, answerBtn4;
     private String answer;
 
+    private int number;
+    private int score;
+
     FirebaseFirestore db;
+    ArrayList<DocumentReference> docRef = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,38 +48,76 @@ public class QuizCardActivity extends AppCompatActivity {
         answerBtn3 = findViewById(R.id.answer_button_3);
         answerBtn4 = findViewById(R.id.answer_button_4);
 
+        number = 0;
+        score = 0;
+
         // Load data from Cloud Firestore database
         loadData();
+        // Set data from loaded Cloud Firestore database
+        setData();
 
         answerBtn1.setOnClickListener(view -> {
-            if (answer.equals(answerBtn1.getText().toString())) {
-                Intent intent = new Intent(QuizCardActivity.this, SummaryActivity.class);
-                startActivity(intent);
+            if (checkAnswer(answerBtn1.getText().toString())) {
+                score++;
+            }
+
+            if (number < docRef.size() - 1) {
+                number++;
+                setData();
+            } else {
+                lunchSummaryActivity();
             }
         });
         answerBtn2.setOnClickListener(view -> {
-            if (answer.equals(answerBtn2.getText().toString())) {
-                Intent intent = new Intent(QuizCardActivity.this, SummaryActivity.class);
-                startActivity(intent);
+            if (checkAnswer(answerBtn2.getText().toString())) {
+                score++;
+            }
+
+            if (number < docRef.size() - 1) {
+                number++;
+                setData();
+            } else {
+                lunchSummaryActivity();
             }
         });
         answerBtn3.setOnClickListener(view -> {
-            if (answer.equals(answerBtn3.getText().toString())) {
-                Intent intent = new Intent(QuizCardActivity.this, SummaryActivity.class);
-                startActivity(intent);
+            if (checkAnswer(answerBtn3.getText().toString())) {
+                score++;
+            }
+
+            if (number < docRef.size() - 1) {
+                number++;
+                setData();
+            } else {
+                lunchSummaryActivity();
             }
         });
         answerBtn4.setOnClickListener(view -> {
-            if (answer.equals(answerBtn4.getText().toString())) {
-                Intent intent = new Intent(QuizCardActivity.this, SummaryActivity.class);
-                startActivity(intent);
+            if (checkAnswer(answerBtn4.getText().toString())) {
+                score++;
+            }
+
+            if (number < docRef.size() - 1) {
+                number++;
+                setData();
+            } else {
+                lunchSummaryActivity();
             }
         });
     }
 
     private void loadData() {
-        DocumentReference docRef = db.collection("quizzes").document("TawN7TFfpaCINvmPBoq3");
-        docRef.get()
+        docRef.add(0, db.collection("quizzes").document("WzPnaUI8X1KS4CScezvV"));
+        docRef.add(1, db.collection("quizzes").document("TawN7TFfpaCINvmPBoq3"));
+        docRef.add(2, db.collection("quizzes").document("r96bVy6KKQAZRJxeMy1T"));
+    }
+
+    private void setData() {
+        // Set question number
+        String mNumber = (number + 1) + "/" + docRef.size();
+        quizNumTV.setText(mNumber);
+
+        docRef.get(number).get()
                 .addOnSuccessListener(documentSnapshot -> {
                     Quiz quiz = documentSnapshot.toObject(Quiz.class);
 
@@ -83,9 +129,19 @@ public class QuizCardActivity extends AppCompatActivity {
 
                     answer = quiz.getAnswer();
 
-                    Log.d(TAG, "Get data complete");
-
+                    Log.d(TAG, "Set data complete");
                 });
+    }
 
+    private boolean checkAnswer(String ans) {
+        return answer.equals(ans);
+    }
+
+    private void lunchSummaryActivity() {
+        Intent intent = new Intent(QuizCardActivity.this, SummaryActivity.class);
+        String mScore = Integer.toString(score);
+        intent.putExtra(EXTRA_MY_SCORE, mScore);
+        intent.putExtra(EXTRA_FULL_SCORE, Integer.toString(docRef.size()));
+        startActivity(intent);
     }
 }

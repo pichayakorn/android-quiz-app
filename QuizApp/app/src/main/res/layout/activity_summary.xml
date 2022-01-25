@@ -70,7 +70,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/score_img_show1"
+                android:id="@+id/score_star_show1"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_margin="15dp"
@@ -79,7 +79,7 @@
                 app:srcCompat="@drawable/btn_5" />
 
             <ImageView
-                android:id="@+id/score_img_show2"
+                android:id="@+id/score_star_show2"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_margin="15dp"
@@ -87,7 +87,7 @@
                 app:srcCompat="@drawable/btn_5" />
 
             <ImageView
-                android:id="@+id/score_img_show3"
+                android:id="@+id/score_star_show3"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_margin="15dp"
@@ -168,7 +168,7 @@
             <TextView
                 android:id="@+id/score_text_showPercent"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="24dp"
                 android:layout_weight="1"
                 android:text="80%"
                 android:textAlignment="viewEnd"

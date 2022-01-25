@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:gravity="end"
-                android:text="Sing up"
+                android:text="Sign up"
                 android:textColor="#DFECFF"
                 android:textSize="20sp" />
 
