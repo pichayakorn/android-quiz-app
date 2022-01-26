@@ -264,6 +264,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/dark_btn"
+        android:textColor="@drawable/button_menu_text_color"
         android:text="Back to menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
