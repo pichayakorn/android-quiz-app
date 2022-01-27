@@ -100,7 +100,7 @@
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
                 android:text="Login"
-                android:textColor="#0B1823"
+                android:textColor="@drawable/button_quiz_card_text_color"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
