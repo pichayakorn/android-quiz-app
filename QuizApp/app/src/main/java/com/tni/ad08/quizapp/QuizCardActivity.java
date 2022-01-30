@@ -107,7 +107,6 @@ public class QuizCardActivity extends AppCompatActivity {
     }
 
     private void addData() {
-        final String[] docRefId = new String[1];
         db.collection("user-history")
                 .add(userQuizData)
                 .addOnSuccessListener(documentReference -> {
